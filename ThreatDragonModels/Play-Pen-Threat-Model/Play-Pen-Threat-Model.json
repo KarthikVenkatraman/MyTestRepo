@@ -1,0 +1,12 @@
+{
+  "summary": {
+    "title": "Play-Pen-Threat-Model",
+    "owner": "Karthik",
+    "description": "Test thread model"
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [],
+    "reviewer": "Jan"
+  }
+}
