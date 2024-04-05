@@ -5,7 +5,11 @@
     "description": "Test thread model"
   },
   "detail": {
-    "contributors": [],
+    "contributors": [
+      {
+        "name": "Lee"
+      }
+    ],
     "diagrams": [
       {
         "title": "Data Flow DIagram",
