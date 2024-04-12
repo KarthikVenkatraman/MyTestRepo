@@ -15,7 +15,154 @@
         "title": "Data Flow DIagram",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "diagramType": "STRIDE",
-        "id": 0
+        "id": 0,
+        "diagramJson": {
+          "cells": [
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 51,
+                "y": 179
+              },
+              "angle": 0,
+              "id": "c1de2c87-bf2a-488e-9e47-6b5762a295fd",
+              "z": 1,
+              "hasOpenThreats": false,
+              "description": "Gitlab pipeline",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Gitlab"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 358,
+                "y": 165
+              },
+              "angle": 0,
+              "id": "8ee223c0-5026-4690-a873-f232e283a8d2",
+              "z": 2,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "modelType": "STRIDE",
+                  "title": "New Access Key Not Being Consumed",
+                  "type": "Spoofing",
+                  "description": "When a new access key is generated, and a gitlab pipeline is triggered for the same, there is a possibility that the pipeline to update the newly generated access key and consume the same, may not be completed and hence the old access key would continue to be in use",
+                  "mitigation": "Notify the pipeline repo owner and if not acted within a certain amount of time, auto approve the gitlab job",
+                  "threatId": "c7d76d2d-6b31-4bbe-a99d-717dbe918d55"
+                },
+                {
+                  "ruleId": "d97bcb80-f96d-44af-869a-d0441761be05",
+                  "title": "Vulnerability scanning",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "See OWASP Automated Threat #14:\nSystematic enumeration and examination in order to find weaknesses and points where a security vulnerability might exist",
+                  "mitigation": "Defence includes providing anti-automation",
+                  "threatId": "c9fd19e3-8cde-4322-a4ce-70f6f576b753"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "modelType": "STRIDE",
+                  "title": "Both the keys are in use and hence new key generation fails",
+                  "type": "Denial of service",
+                  "description": "If both the access keys for the user are in use, then the secret rotation utility will not be able to generate a new key.",
+                  "mitigation": "utility to check the oldest among access key and automatically delete it",
+                  "threatId": "71b78943-a603-4499-a49c-616d1a2f1aac"
+                }
+              ],
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Secret Rotation\nUtlity"
+                },
+                ".element-text": {
+                  "class": "element-text hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Boundary",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 215,
+                "y": 353
+              },
+              "target": {
+                "x": 229,
+                "y": 455
+              },
+              "vertices": [
+                {
+                  "x": 217,
+                  "y": 468
+                },
+                {
+                  "x": 68,
+                  "y": 493
+                },
+                {
+                  "x": 51,
+                  "y": 372
+                },
+                {
+                  "x": 49,
+                  "y": 360
+                },
+                {
+                  "x": 26,
+                  "y": 112
+                },
+                {
+                  "x": 139,
+                  "y": 69
+                },
+                {
+                  "x": 237,
+                  "y": 62
+                },
+                {
+                  "x": 290,
+                  "y": 364
+                }
+              ],
+              "id": "77a8fccb-ef56-422c-b33a-8f73406018f5",
+              "z": 3,
+              "attrs": {}
+            }
+          ]
+        },
+        "size": {
+          "height": 590,
+          "width": 790
+        }
       }
     ],
     "reviewer": "Jan"
