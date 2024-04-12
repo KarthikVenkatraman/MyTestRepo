@@ -31,17 +31,29 @@
               "angle": 0,
               "id": "c1de2c87-bf2a-488e-9e47-6b5762a295fd",
               "z": 1,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "description": "Gitlab pipeline",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "modelType": "STRIDE",
+                  "title": "Gitlab schedule failing to execute",
+                  "type": "Tampering",
+                  "description": "The gitlab monthly schedule fails to run",
+                  "mitigation": "Notify via slack channel if there is a pipeline schedule failure",
+                  "threatId": "fbe08854-4a12-406a-b34f-88e5d0937a99"
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "Gitlab"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
