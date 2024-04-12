@@ -182,16 +182,28 @@
               "angle": 0,
               "id": "126be305-0308-4df2-a92e-28536d4f3cbe",
               "z": 4,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "modelType": "STRIDE",
+                  "title": "Unwanted access to secret manager via other IAM Roles",
+                  "type": "Information disclosure",
+                  "description": "there may be other iam roles in the account which may allow access to this secrets manager",
+                  "mitigation": "ensure that there is a resource policy for the secret that allows access only to required principals and denies access to all other principals",
+                  "threatId": "95b94edc-234b-4755-bcd9-2d5aff3be336"
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "secrets manager"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
