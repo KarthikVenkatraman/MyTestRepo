@@ -12,27 +12,37 @@
     ],
     "diagrams": [
       {
-        "title": "Data Flow DIagram",
-        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "diagramType": "STRIDE",
-        "id": 0,
-        "diagramJson": {
-          "cells": [
-            {
-              "type": "tm.Actor",
-              "size": {
-                "width": 160,
-                "height": 80
+        "cells": [
+          {
+            "position": {
+              "x": 51,
+              "y": 179
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Gitlab"
               },
-              "position": {
-                "x": 51,
-                "y": 179
-              },
-              "angle": 0,
-              "id": "c1de2c87-bf2a-488e-9e47-6b5762a295fd",
-              "z": 1,
-              "hasOpenThreats": true,
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "c1de2c87-bf2a-488e-9e47-6b5762a295fd",
+            "data": {
+              "name": "Gitlab",
               "description": "Gitlab pipeline",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
               "threats": [
                 {
                   "status": "Open",
@@ -42,35 +52,44 @@
                   "type": "Tampering",
                   "description": "The gitlab monthly schedule fails to run",
                   "mitigation": "Notify via slack channel if there is a pipeline schedule failure",
-                  "threatId": "fbe08854-4a12-406a-b34f-88e5d0937a99"
+                  "threatId": "fbe08854-4a12-406a-b34f-88e5d0937a99",
+                  "id": "663de980-6c42-492c-bdd5-658eaa1ba653"
                 }
               ],
-              "attrs": {
-                ".element-shape": {
-                  "class": "element-shape hasOpenThreats isInScope"
-                },
-                "text": {
-                  "text": "Gitlab"
-                },
-                ".element-text": {
-                  "class": "element-text hasOpenThreats isInScope"
-                }
+              "hasOpenThreats": true,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 358,
+              "y": 165
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "Secret Rotation\nUtlity"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
               }
             },
-            {
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "id": "8ee223c0-5026-4690-a873-f232e283a8d2",
+            "data": {
+              "name": "Secret Rotation\nUtlity",
+              "description": "",
               "type": "tm.Process",
-              "size": {
-                "width": 100,
-                "height": 100
-              },
-              "position": {
-                "x": 358,
-                "y": 165
-              },
-              "angle": 0,
-              "id": "8ee223c0-5026-4690-a873-f232e283a8d2",
-              "z": 2,
-              "hasOpenThreats": true,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
               "threats": [
                 {
                   "status": "Open",
@@ -80,7 +99,8 @@
                   "type": "Spoofing",
                   "description": "When a new access key is generated, and a gitlab pipeline is triggered for the same, there is a possibility that the pipeline to update the newly generated access key and consume the same, may not be completed and hence the old access key would continue to be in use",
                   "mitigation": "Notify the pipeline repo owner and if not acted within a certain amount of time, auto approve the gitlab job",
-                  "threatId": "c7d76d2d-6b31-4bbe-a99d-717dbe918d55"
+                  "threatId": "c7d76d2d-6b31-4bbe-a99d-717dbe918d55",
+                  "id": "82fac52b-4941-435a-a67d-34a3c0b68016"
                 },
                 {
                   "ruleId": "d97bcb80-f96d-44af-869a-d0441761be05",
@@ -91,7 +111,8 @@
                   "severity": "Medium",
                   "description": "See OWASP Automated Threat #14:\nSystematic enumeration and examination in order to find weaknesses and points where a security vulnerability might exist",
                   "mitigation": "Defence includes providing anti-automation",
-                  "threatId": "c9fd19e3-8cde-4322-a4ce-70f6f576b753"
+                  "threatId": "c9fd19e3-8cde-4322-a4ce-70f6f576b753",
+                  "id": "dff0535d-50ed-48ed-ab97-abe9fdc9c8b3"
                 },
                 {
                   "status": "Open",
@@ -101,88 +122,51 @@
                   "type": "Denial of service",
                   "description": "If both the access keys for the user are in use, then the secret rotation utility will not be able to generate a new key.",
                   "mitigation": "utility to check the oldest among access key and automatically delete it",
-                  "threatId": "71b78943-a603-4499-a49c-616d1a2f1aac"
+                  "threatId": "71b78943-a603-4499-a49c-616d1a2f1aac",
+                  "id": "ba05eb8c-8c61-4bac-a33b-8431a912980d"
                 }
               ],
-              "attrs": {
-                ".element-shape": {
-                  "class": "element-shape hasOpenThreats isInScope"
-                },
-                "text": {
-                  "text": "Secret Rotation\nUtlity"
-                },
-                ".element-text": {
-                  "class": "element-text hasOpenThreats isInScope"
-                }
+              "hasOpenThreats": true,
+              "handlesCardPayment": null,
+              "isWebApplication": null,
+              "handlesGoodsOrServices": null
+            }
+          },
+          {
+            "position": {
+              "x": 629,
+              "y": 167
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "secrets manager"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
               }
             },
-            {
-              "type": "tm.Boundary",
-              "size": {
-                "width": 10,
-                "height": 10
-              },
-              "smooth": true,
-              "source": {
-                "x": 215,
-                "y": 353
-              },
-              "target": {
-                "x": 229,
-                "y": 455
-              },
-              "vertices": [
-                {
-                  "x": 217,
-                  "y": 468
-                },
-                {
-                  "x": 68,
-                  "y": 493
-                },
-                {
-                  "x": 51,
-                  "y": 372
-                },
-                {
-                  "x": 49,
-                  "y": 360
-                },
-                {
-                  "x": 26,
-                  "y": 112
-                },
-                {
-                  "x": 139,
-                  "y": 69
-                },
-                {
-                  "x": 237,
-                  "y": 62
-                },
-                {
-                  "x": 290,
-                  "y": 364
-                }
-              ],
-              "id": "77a8fccb-ef56-422c-b33a-8f73406018f5",
-              "z": 3,
-              "attrs": {}
-            },
-            {
+            "visible": true,
+            "shape": "store",
+            "zIndex": 4,
+            "id": "126be305-0308-4df2-a92e-28536d4f3cbe",
+            "data": {
+              "name": "secrets manager",
+              "description": "",
               "type": "tm.Store",
-              "size": {
-                "width": 160,
-                "height": 80
-              },
-              "position": {
-                "x": 629,
-                "y": 167
-              },
-              "angle": 0,
-              "id": "126be305-0308-4df2-a92e-28536d4f3cbe",
-              "z": 4,
-              "hasOpenThreats": true,
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
               "threats": [
                 {
                   "status": "Open",
@@ -192,124 +176,241 @@
                   "type": "Information disclosure",
                   "description": "there may be other iam roles in the account which may allow access to this secrets manager",
                   "mitigation": "ensure that there is a resource policy for the secret that allows access only to required principals and denies access to all other principals",
-                  "threatId": "95b94edc-234b-4755-bcd9-2d5aff3be336"
-                }
-              ],
-              "attrs": {
-                ".element-shape": {
-                  "class": "element-shape hasOpenThreats isInScope"
-                },
-                "text": {
-                  "text": "secrets manager"
-                },
-                ".element-text": {
-                  "class": "element-text hasOpenThreats isInScope"
-                }
-              }
-            },
-            {
-              "type": "tm.Flow",
-              "size": {
-                "width": 10,
-                "height": 10
-              },
-              "smooth": true,
-              "source": {
-                "x": 281,
-                "y": 235
-              },
-              "target": {
-                "id": "8ee223c0-5026-4690-a873-f232e283a8d2"
-              },
-              "vertices": [
-                {
-                  "x": 362,
-                  "y": 111
-                }
-              ],
-              "id": "d8923ed9-0895-47fe-911a-87d8323681d6",
-              "labels": [
-                {
-                  "position": 0.5,
-                  "attrs": {
-                    "text": {
-                      "text": "flow 4",
-                      "font-weight": "400",
-                      "font-size": "small"
-                    }
-                  }
-                }
-              ],
-              "z": 5,
-              "hasOpenThreats": false,
-              "attrs": {
-                ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
-                },
-                ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
-                }
-              }
-            },
-            {
-              "type": "tm.Flow",
-              "size": {
-                "width": 10,
-                "height": 10
-              },
-              "smooth": true,
-              "source": {
-                "x": 445,
-                "y": 178
-              },
-              "target": {
-                "id": "126be305-0308-4df2-a92e-28536d4f3cbe"
-              },
-              "vertices": [
-                {
-                  "x": 506,
-                  "y": 231
+                  "threatId": "95b94edc-234b-4755-bcd9-2d5aff3be336",
+                  "id": "4ea747dd-2b78-4e27-aefb-6316874e7179"
                 },
                 {
-                  "x": 584,
-                  "y": 220
+                  "id": "d2f5cd0f-1085-41d5-bee6-4bc9e19d45dd",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 0,
+                  "score": ""
                 }
               ],
-              "id": "c568e6ac-a8a4-4c94-ac43-d9223afab21e",
-              "labels": [
-                {
-                  "position": 0.5,
-                  "attrs": {
-                    "text": {
-                      "text": "geneated secrets",
-                      "font-weight": "400",
-                      "font-size": "small"
-                    }
-                  }
-                }
-              ],
-              "z": 6,
-              "hasOpenThreats": false,
-              "attrs": {
-                ".marker-target": {
-                  "class": "marker-target hasNoOpenThreats isInScope"
-                },
-                ".connection": {
-                  "class": "connection hasNoOpenThreats isInScope"
-                }
-              }
+              "hasOpenThreats": true,
+              "isALog": false,
+              "storesCredentials": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesInventory": null
             }
-          ]
-        },
-        "size": {
-          "height": 590,
-          "width": 790
-        }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "d316da8a-a0d3-4e56-ba96-64a8509af6b1",
+            "labels": [],
+            "source": {
+              "x": 215,
+              "y": 353
+            },
+            "target": {
+              "x": 229,
+              "y": 455
+            },
+            "vertices": [
+              {
+                "x": 217,
+                "y": 468
+              },
+              {
+                "x": 68,
+                "y": 493
+              },
+              {
+                "x": 51,
+                "y": 372
+              },
+              {
+                "x": 49,
+                "y": 360
+              },
+              {
+                "x": 26,
+                "y": 112
+              },
+              {
+                "x": 139,
+                "y": 69
+              },
+              {
+                "x": 237,
+                "y": 62
+              },
+              {
+                "x": 290,
+                "y": 364
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "flow 4",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "modelType": "STRIDE",
+                  "title": "Unwanted access to secret manager via other IAM Roles",
+                  "type": "Information disclosure",
+                  "description": "there may be other iam roles in the account which may allow access to this secrets manager",
+                  "mitigation": "ensure that there is a resource policy for the secret that allows access only to required principals and denies access to all other principals",
+                  "threatId": "95b94edc-234b-4755-bcd9-2d5aff3be336",
+                  "id": "4ea747dd-2b78-4e27-aefb-6316874e7179"
+                },
+                {
+                  "ruleId": "d97bcb80-f96d-44af-869a-d0441761be05",
+                  "title": "Vulnerability scanning",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "See OWASP Automated Threat #14:\nSystematic enumeration and examination in order to find weaknesses and points where a security vulnerability might exist",
+                  "mitigation": "Defence includes providing anti-automation",
+                  "threatId": "c9fd19e3-8cde-4322-a4ce-70f6f576b753",
+                  "id": "dff0535d-50ed-48ed-ab97-abe9fdc9c8b3"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "modelType": "STRIDE",
+                  "title": "Both the keys are in use and hence new key generation fails",
+                  "type": "Denial of service",
+                  "description": "If both the access keys for the user are in use, then the secret rotation utility will not be able to generate a new key.",
+                  "mitigation": "utility to check the oldest among access key and automatically delete it",
+                  "threatId": "71b78943-a603-4499-a49c-616d1a2f1aac",
+                  "id": "ba05eb8c-8c61-4bac-a33b-8431a912980d"
+                }
+              ],
+              "isTrustBoundary": false,
+              "providesAuthentication": false,
+              "isALog": false,
+              "storesCredentials": false,
+              "isSigned": false
+            },
+            "id": "2e063a2f-9d04-470a-ad47-c8c10e57e9f4",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "geneated secrets"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "x": 445,
+              "y": 178
+            },
+            "target": {
+              "cell": "126be305-0308-4df2-a92e-28536d4f3cbe"
+            },
+            "vertices": [
+              {
+                "x": 506,
+                "y": 231
+              },
+              {
+                "x": 584,
+                "y": 220
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "26d1d475-43d3-4587-887b-ff0a98c4896a",
+            "source": {
+              "x": 170,
+              "y": 260
+            },
+            "target": {
+              "cell": "8ee223c0-5026-4690-a873-f232e283a8d2"
+            }
+          }
+        ],
+        "version": "2.2.0",
+        "title": "Data Flow DIagram",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "id": 0,
+        "diagramType": "STRIDE"
       }
     ],
     "reviewer": "Jan",
     "diagramTop": 11,
-    "threatTop": 100
+    "threatTop": 101
   },
   "version": "2.2.0"
 }
