@@ -124,6 +124,19 @@
                   "mitigation": "utility to check the oldest among access key and automatically delete it",
                   "threatId": "71b78943-a603-4499-a49c-616d1a2f1aac",
                   "id": "ba05eb8c-8c61-4bac-a33b-8431a912980d"
+                },
+                {
+                  "id": "255b8016-4e79-431f-bd3b-daaae2ea55b0",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 102,
+                  "score": ""
                 }
               ],
               "hasOpenThreats": true,
@@ -191,12 +204,25 @@
                   "new": true,
                   "number": 0,
                   "score": ""
+                },
+                {
+                  "id": "f02934f5-0de8-4341-a20b-5d7843bb4542",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 103,
+                  "score": ""
                 }
               ],
               "hasOpenThreats": true,
               "isALog": false,
-              "storesCredentials": false,
-              "isEncrypted": false,
+              "storesCredentials": true,
+              "isEncrypted": true,
               "isSigned": false,
               "storesInventory": null
             }
@@ -414,7 +440,7 @@
     ],
     "reviewer": "Jan",
     "diagramTop": 11,
-    "threatTop": 101
+    "threatTop": 103
   },
   "version": "2.2.0"
 }
